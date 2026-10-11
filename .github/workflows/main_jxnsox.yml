@@ -1,8 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy ASP.Net Core app to Azure Web App - jxnsox
-
+name: Deploy Website to Azure Web App - jxnsox
 
 on:
   push:
@@ -24,16 +20,13 @@ jobs:
       - name: Azure Login
         uses: azure/login@v2
         with:
-        with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B5BB59F7DE41432DA5830AEE05337F43 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_59CA5FB5A982454A873B011EAAC30316 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_82F4C695D80A47098CDFD665CF0B7FF3 }}
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'jxnsox'
-          slot-name: 'Production'
+          app-name: jxnsox
+          slot-name: Production
           package: .
-          
